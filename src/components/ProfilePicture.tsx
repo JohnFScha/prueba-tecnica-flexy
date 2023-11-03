@@ -45,7 +45,7 @@ export default function ProfilePicture() {
         <img src={fileDataURL ? fileDataURL.toString() : Image} alt="profile picture" className='lg:w-1/5 sm:w-14 rounded-full' />
         Elegí una foto de perfil:
       </div>
-      <input type="file" id='profilePicture' name='profilePicture' className='file:hidden lg:w-1/3 lg:p-0 sm:w-full sm:px-20' autoComplete='photo' onChange={changeHandler} required />
+      <input type="file" id='profilePicture' name='profilePicture' className='w-px opacity-0 overflow-hidden absolute lg:left-[20%]' autoComplete='photo' onChange={changeHandler} required />
     </label>
   )
 }

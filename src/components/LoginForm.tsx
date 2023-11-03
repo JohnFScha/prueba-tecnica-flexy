@@ -6,12 +6,11 @@ import { loginSuccess, loginFailure } from '../utils/SweetAlert'
 export default function LoginForm() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const state = sessionStorage.getItem('userSate')
+  const state = sessionStorage.getItem('userState')
   const user: User = JSON.parse(state as string)
-
+  
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-
     const emailCheck = user.email === email
     const passwordCheck = user.password === password
 

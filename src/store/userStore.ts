@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 export type User = {
-  profilePicture: File,
+  profilePicture: string,
   fullName: string,
   cellPhone: string,
   email: string,
