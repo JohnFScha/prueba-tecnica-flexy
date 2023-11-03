@@ -19,7 +19,7 @@ export default function RegisterBody({
           <img src={Logo} alt="flexy logo" />
           <img src={Menu} alt="menu-placeholder" className='lg:hidden opacity-60 p-2' />
         </header>
-        <div className='flex flex-col lg:items-stretch lg:w-8/12 lg:pt-10 lg:px-0 lg:mx-auto sm:px-20 my-10 gap-5 border-neutral-300'>
+        <div className='flex flex-col lg:items-stretch lg:w-8/12 sm:w-10/12 lg:pt-10 lg:px-0 lg:mx-auto sm:px-20 my-10 gap-5 border-neutral-300'>
           <h1 className='lg:text-4xl sm:text-3xl font-bold sm:text-center lg:text-start'>¡Bienvenido!</h1>
           <h2 className='text-neutral-500 lg:text-lg sm:text-base sm:text-center lg:text-start'>Conviertete ahora en un agente Flexy.</h2>
           <RegisterForm />
