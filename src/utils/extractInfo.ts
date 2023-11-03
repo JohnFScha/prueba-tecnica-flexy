@@ -1,7 +1,7 @@
 import { User } from "../store/userStore";
 
 export default function extractInfo(formData: FormData): User {
-  const profilePicture = formData.get('profilePicture') as File;
+  const profilePicture = formData.get('profilePicture') as string;
   const fullName = formData.get('fullName') as string;
   const cellPhone = formData.get('cellPhone') as string;
   const email = formData.get('email') as string;
