@@ -42,7 +42,7 @@ export default function ProfilePicture() {
   return (
     <label htmlFor="profilePicture" className='flex lg:flex-row sm:flex-col lg:text-lg  sm:text-lg lg:items-center hover:cursor-pointer lg:justify-normal sm:items-center'>
       <div className='flex items-center lg:w-2/3 gap-2'>
-        <img src={fileDataURL ? fileDataURL.toString() : Image} alt="profile picture" className='lg:w-1/5 sm:w-14 rounded-full' />
+        <img src={fileDataURL ? fileDataURL.toString() : Image} alt="profile picture" width={100} className='rounded-full' />
         Elegí una foto de perfil:
       </div>
       <input type="file" id='profilePicture' name='profilePicture' className='w-px opacity-0 overflow-hidden absolute lg:left-[20%]' autoComplete='photo' onChange={changeHandler} required />
