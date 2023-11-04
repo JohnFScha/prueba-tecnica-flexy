@@ -1,30 +1,63 @@
 import { User } from '../store/userStore';
-import { PasswordButton } from './PasswordButton';
-import { FormEvent, useState } from 'react';
+import { useState, useRef, useImperativeHandle } from 'react';
 import { loginSuccess, loginFailure } from '../utils/SweetAlert'
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
+import { useForm } from 'react-hook-form'
+
+type FormValues = {
+  email: string,
+  password: string
+}
 
 export default function LoginForm() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [passwordShown, setPasswordShown] = useState(false);
+  const passRef = useRef<HTMLInputElement | null>(null)
+  const { register, handleSubmit } = useForm<FormValues>();
+  const { ref } = register('password')
+  useImperativeHandle(ref, () => passRef.current)
   const state = sessionStorage.getItem('userState')
   const user: User = JSON.parse(state as string)
-  
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const emailCheck = user.email === email
-    const passwordCheck = user.password === password
 
-    if (emailCheck && passwordCheck) {
+  let passInput = passRef.current?.type
+
+  const onSubmit = (data: FormValues) => {
+    console.log(data)
+    const emailCheck = user.email === data.email
+    const passwordCheck = user.password === data.password
+
+    if(emailCheck && passwordCheck) {
       loginSuccess(user)
     } else {
-      loginFailure(email)
+      loginFailure(user.email)
     }
   }
 
   return (
-    <form onSubmit={handleSubmit} className='flex flex-col gap-7'>
-      <input type="email" name="email" placeholder='hola@tuemail.com' className='bg-background border-2 p-3 rounded-lg border-border focus:outline-none' autoComplete='username' required value={email} onChange={e => setEmail(e.target.value)} />
-      <PasswordButton password={password} onChange={e => setPassword(e.target.value)} />
+    <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-7'>
+      <label htmlFor="email" className='flex flex-col'>
+        <input
+          type="email"
+          placeholder='hola@tuemail.com'
+          autoComplete='username'
+          {...register("email", { required: true })}
+          className='bg-background border-2 p-3 rounded-lg border-border focus:outline-none'
+        />
+      </label>
+      <label htmlFor="password" className='flex flex-col'>
+        <div className='flex bg-background border-2 border-border rounded-lg'>
+          <input
+            type={passwordShown ? "text" : "password"}
+            id='password'
+            placeholder='Ingresá tu contraseña'
+            className='w-[100%] bg-background p-3 focus:outline-none' autoComplete='current-password'
+            {...register("password", { required: true })}
+            ref={passRef}
+          />
+          <button className='p-2' type='button' onClick={() => setPasswordShown(!passwordShown)}>
+            {passInput === 'password' ? <AiOutlineEyeInvisible className="text-2xl opacity-50" /> : <AiOutlineEye className="text-2xl opacity-50" />}
+          </button>
+        </div>
+      </label>
       <button type="submit" className='bg-primary text-white border-2 p-3 rounded-lg font-bold'>Iniciar Sesión</button>
     </form>
   )

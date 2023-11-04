@@ -7,7 +7,7 @@ export default function ProfilePicture() {
   const [file, setFile] = useState<File | undefined>();
   const [fileDataURL, setFileDataURL] = useState<string | ArrayBuffer>();
 
-  const changeHandler = (event: ChangeEvent<HTMLInputElement> |undefined) => {
+  const changeHandler = (event: ChangeEvent<HTMLInputElement> | undefined) => {
     const file = event?.target?.files?.[0];
     if (!file!.type.match(imageMimeType)) {
       alert("Image mime type is not valid");
@@ -37,15 +37,23 @@ export default function ProfilePicture() {
     }
 
   }, [file]);
-  
+
 
   return (
     <label htmlFor="profilePicture" className='flex lg:flex-row sm:flex-col lg:text-lg  sm:text-lg lg:items-center hover:cursor-pointer lg:justify-normal sm:items-center'>
       <div className='flex items-center lg:w-2/3 gap-2'>
-        <img src={fileDataURL ? fileDataURL.toString() : Image} alt="profile picture" width={100} className='rounded-full' />
+        <img src={fileDataURL ? fileDataURL.toString() : Image} alt="profile picture" width={60} className='rounded-full' />
         Elegí una foto de perfil:
       </div>
-      <input type="file" id='profilePicture' name='profilePicture' className='w-px opacity-0 overflow-hidden absolute lg:left-[20%]' autoComplete='photo' onChange={changeHandler} required />
+      <input
+        type="file"
+        id='profilePicture'
+        name='profilePicture'
+        className='w-px opacity-0 overflow-hidden absolute lg:left-[20%]' autoComplete='photo'
+        accept='image/*'
+        required
+        onChange={changeHandler}
+      />
     </label>
   )
 }
