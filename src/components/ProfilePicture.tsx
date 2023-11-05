@@ -40,7 +40,10 @@ export default function ProfilePicture() {
 
 
   return (
-    <label htmlFor="profilePicture" className='flex lg:flex-row sm:flex-col lg:text-lg  sm:text-lg lg:items-center hover:cursor-pointer lg:justify-normal sm:items-center'>
+    <label
+      htmlFor="profilePicture"
+      className='flex lg:flex-row sm:flex-col lg:text-lg  sm:text-lg lg:items-center hover:cursor-pointer lg:justify-normal sm:items-center'
+    >
       <div className='flex items-center lg:w-2/3 gap-2'>
         <img src={fileDataURL ? fileDataURL.toString() : Image} alt="profile picture" width={60} className='rounded-full' />
         Elegí una foto de perfil:

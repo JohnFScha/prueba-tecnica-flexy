@@ -21,5 +21,5 @@ export default {
       'sm': '200px'
     }
   },
-  plugins: [],
+  plugins: [require('daisyui')],
 }

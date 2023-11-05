@@ -30,7 +30,11 @@ export default function LoginForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col items-stretch gap-7'>
       <ProfilePicture />
-      <label htmlFor="fullName" className='flex flex-col'>
+      <label
+        htmlFor="fullName"
+        className='tooltip tooltip-top tooltip-primary flex flex-col'
+        data-tip='Ingrese nombre y apellido '
+      >
         <input
           type="text"
           placeholder='Nombre y Apellido'
@@ -48,7 +52,11 @@ export default function LoginForm() {
         />
         {errors?.fullName ? <p className='text-center p-1 text-red-400'>{errors.fullName?.message as string}</p> : null}
       </label>
-      <label htmlFor="cellPhone" className='flex flex-col'>
+      <label
+        htmlFor="cellPhone"
+        className='tooltip tooltip-top tooltip-primary flex flex-col'
+        data-tip='Codigo internacional + codigo regional + tel'
+      >
         <input
           type="tel"
           autoComplete='telephone'
@@ -66,7 +74,11 @@ export default function LoginForm() {
         />
         {errors?.cellPhone ? <p className='text-center p-1 text-red-400'>{errors.cellPhone?.message as string}</p> : null}
       </label>
-      <label htmlFor="email" className='flex flex-col'>
+      <label
+        htmlFor="email"
+        className='tooltip tooltip-top tooltip-primary flex flex-col'
+        data-tip='Ingrese un email valido'
+      >
         <input
           type="email"
           placeholder='hola@tuemail.com'
@@ -84,7 +96,11 @@ export default function LoginForm() {
         />
         {errors?.email ? <p className='text-center p-1 text-red-400'>{errors.email?.message as string}</p> : null}
       </label>
-      <label htmlFor="password" className='flex flex-col'>
+      <label 
+      htmlFor="password" 
+      className='tooltip tooltip-top tooltip-primary flex flex-col'
+      data-tip='Debe contener al menos un numero, un caracter y un simbolo'
+      >
         <div className='flex bg-background border-2 border-border rounded-lg'>
           <input
             type={passwordShown ? "text" : "password"}
