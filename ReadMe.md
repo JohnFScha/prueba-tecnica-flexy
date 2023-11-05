@@ -85,7 +85,7 @@ El proyecto utiliza:
 />
 ```
 
-En este ejemplo se estableció un patrón que espera al menos dos cadenas de texto separadas por un espacio en blanco. Los errores se registran en el estado general del formulario y se devuelven al usuario de manera condicional:
+  En este ejemplo se estableció un patrón que espera al menos dos cadenas de texto separadas por un espacio en blanco. Los errores se registran en el estado general del formulario y se devuelven al usuario de manera condicional:
 
 ```jsx
   <label>
@@ -98,32 +98,32 @@ En este ejemplo se estableció un patrón que espera al menos dos cadenas de tex
 
 - [Tailwind.css](https://tailwindcss.com/): para estilado inline y diseño responsive. Se definieron breakpoint personalizados en el archivo `tailwind.config.js`:
 
-```js
-  themes: {
-    screens: {
-      'lg': '1024px',
-      'sm': '200px'
+  ```js
+    themes: {
+      screens: {
+        'lg': '1024px',
+        'sm': '200px'
+      }
     }
-  }
-```
+  ```
 
-Tailwind adopta un diseño _mobile first_ con lo que los breakpoint siguen el modelo de `@media screen (min-width: ...)`. Los estilos se aplicarán hasta que se presente el siguiente breakpoint definido.
+  Tailwind adopta un diseño _mobile first_ con lo que los breakpoint siguen el modelo de `@media screen (min-width: ...)`. Los estilos se aplicarán hasta que se presente el siguiente breakpoint definido.
 
-Para los colores definidos en las plantillas de figma se hizo lo mismo, pero en el apartado colores:
+  Para los colores definidos en las plantillas de figma se hizo lo mismo, pero en el apartado colores:
 
-```js
-  themes: {
-    colors: {
-      primary: '#7065F0',
-      white: '#FFF',
-      black: '#000',
-      background: '#F7F7FD',
-      border: '#E0DEF7',
-      neutral: colors.gray,
-      red: colors.red
+  ```js
+    themes: {
+      colors: {
+        primary: '#7065F0',
+        white: '#FFF',
+        black: '#000',
+        background: '#F7F7FD',
+        border: '#E0DEF7',
+        neutral: colors.gray,
+        red: colors.red
+      }
     }
-  }
-```
+  ```
 
 - [DaisyUI](https://daisyui.com/): Libreria de componentes basados en Tailwind.css. Al integrarse con tailwind, los componentes pueden aplicarse de manera sencilla con el método `className`. En éste caso fue implementado en el formulario de registro, para informar al usuario de los patrones esperados en el ingreso de datos:
 
@@ -134,7 +134,7 @@ Para los colores definidos en las plantillas de figma se hizo lo mismo, pero en 
     data-tip='Codigo internacional + codigo regional + tel'
   >
 ```
-En éste ejemplo se define un componente `tooltip` que muestra su contenido arriba del elemento en el que se implementa. La propiedad `data-tip` guarda el contenido que se muestra dentro del tooltip.
+  En éste ejemplo se define un componente `tooltip` que muestra su contenido arriba del elemento en el que se implementa. La propiedad `data-tip` guarda el contenido que se muestra dentro del tooltip.
 
 ## [Estructura del proyecto](#estructura-del-proyecto)
 
