@@ -72,18 +72,18 @@ El proyecto utiliza:
 
 - [React Hook Form](https://react-hook-form.com/): Ésta libreria de React simplifica el manejo de formularios del lado del cliente. Al no tener la aplicacion un modelo de información, este se definió en principio en el estado global de la App con Zustand, y por otro se implementó patrones con regex para la validacion de los datos esperados:
 
-```jsx
-<input
-  type="text"
-  {...register("fullName", {
-    required: true,
-    pattern: {
-      value: /^[A-Za-z]{2,}( [A-Za-z]{2,})+$/i,
-      message: "Debe ingresar nombre y apellido",
-    },
-  })}
-/>
-```
+  ```jsx
+  <input
+    type="text"
+    {...register("fullName", {
+      required: true,
+      pattern: {
+        value: /^[A-Za-z]{2,}( [A-Za-z]{2,})+$/i,
+        message: "Debe ingresar nombre y apellido",
+      },
+    })}
+  />
+  ```
 
   En este ejemplo se estableció un patrón que espera al menos dos cadenas de texto separadas por un espacio en blanco. Los errores se registran en el estado general del formulario y se devuelven al usuario de manera condicional:
 
@@ -127,13 +127,13 @@ El proyecto utiliza:
 
 - [DaisyUI](https://daisyui.com/): Libreria de componentes basados en Tailwind.css. Al integrarse con tailwind, los componentes pueden aplicarse de manera sencilla con el método `className`. En éste caso fue implementado en el formulario de registro, para informar al usuario de los patrones esperados en el ingreso de datos:
 
-```jsx
-  <label
-    type='tel'
-    className='tooltip tooltip-top  tooltip-primary'
-    data-tip='Codigo internacional + codigo regional + tel'
-  >
-```
+  ```jsx
+    <label
+      type='tel'
+      className='tooltip tooltip-top  tooltip-primary'
+      data-tip='Codigo internacional + codigo regional + tel'
+    >
+  ```
   En éste ejemplo se define un componente `tooltip` que muestra su contenido arriba del elemento en el que se implementa. La propiedad `data-tip` guarda el contenido que se muestra dentro del tooltip.
 
 ## [Estructura del proyecto](#estructura-del-proyecto)
