@@ -15,7 +15,7 @@ type FormValues = {
 export default function LoginForm() {
   const [passwordShown, setPasswordShown] = useState(false);
   const passRef = useRef<HTMLInputElement | null>(null)
-  const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
+  const { register, handleSubmit, formState: { errors, isValid } } = useForm<FormValues>({mode: 'onChange'});
   const { ref } = register('password')
   const store = useStore()
   useImperativeHandle(ref, () => passRef.current)
@@ -23,8 +23,8 @@ export default function LoginForm() {
   let passInput = passRef.current?.type
 
   const onSubmit = (data: FormValues) => {
-    store.setUser(data as User)
-    registerSuccess(data as User)
+    store.setUser(data as User<string>)
+    registerSuccess(data as User<string>)
   }
 
   return (
@@ -123,7 +123,7 @@ export default function LoginForm() {
         </div>
         {errors?.password ? <p className='text-center p-1 text-red-400'>{errors.password?.message as string}</p> : null}
       </label>
-      <input type="submit" className='bg-primary text-white border-2 p-3 rounded-lg font-bold cursor-pointer' />
+      <input type="submit" className={isValid ?'bg-primary text-white border-2 p-3 rounded-lg font-bold cursor-pointer' : 'bg-neutral-400 text-white border-2 p-3 rounded-lg font-bold'} disabled={!isValid} />
     </form>
   )
 }

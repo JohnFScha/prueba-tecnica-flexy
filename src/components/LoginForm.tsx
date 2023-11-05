@@ -12,16 +12,15 @@ type FormValues = {
 export default function LoginForm() {
   const [passwordShown, setPasswordShown] = useState(false);
   const passRef = useRef<HTMLInputElement | null>(null)
-  const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
+  const { register, handleSubmit, formState: { errors, isValid } } = useForm<FormValues>();
   const { ref } = register('password')
   useImperativeHandle(ref, () => passRef.current)
   const state = sessionStorage.getItem('userState')
-  const user: User = JSON.parse(state as string)
+  const user: User<string> = JSON.parse(state as string)
 
   let passInput = passRef.current?.type
 
   const onSubmit = (data: FormValues) => {
-    console.log(data)
     const emailCheck = user.email === data.email
     const passwordCheck = user.password === data.password
 
@@ -64,7 +63,7 @@ export default function LoginForm() {
         </div>
         {errors?.password ? <p className='text-center p-1 text-red-400'>{errors.password?.message as string}</p> : null}
       </label>
-      <button type="submit" className='bg-primary text-white border-2 p-3 rounded-lg font-bold'>Iniciar Sesión</button>
+      <input type="submit" className={isValid ?'bg-primary text-white border-2 p-3 rounded-lg font-bold cursor-pointer' : 'bg-neutral-400 text-white border-2 p-3 rounded-lg font-bold'} disabled={!isValid} />
     </form>
   )
 }
