@@ -5,13 +5,13 @@ import { User } from '../store/userStore';
 
 const MySwal = withReactContent(Swal);
 
-const registerSuccess = (user: User) => MySwal.fire({
+const registerSuccess = (user: User<string>) => MySwal.fire({
   title: `¡Bienvenido a Flexy ${user.fullName}!`,
   icon: 'success',
   confirmButtonColor: '#7065F0'
 })
 
-const loginSuccess = (user: User) => MySwal.fire({
+const loginSuccess = (user: User<string>) => MySwal.fire({
   title: `¡${user.fullName} logueado!`,
   icon: 'success',
   confirmButtonColor: '#7065F0'
