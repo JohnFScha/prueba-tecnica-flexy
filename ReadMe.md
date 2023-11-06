@@ -56,7 +56,7 @@ Dado que este proyecto no cuenta con un backend real, para simular una base de d
 
 - Validación de Inputs: Los inputs cuentan con validaciones propias. Si no se cumplen estas condiciones, aparecerá un mensaje de error debajo del correspondiente elemento.
 
-- Validación del Formulario: Se ha implementado un patrón Regex esperado para cada elemento del formulario, si los datos ingresados al momento de dar submit no siguen dicho patron no se podra dar submit hasta que se corrijan los elementos señalados.
+- Validación del Formulario: Se ha implementado un patrón Regex esperado para cada elemento del formulario, si los datos ingresados no siguen dicho patron no se podra dar submit hasta que se corrijan los elementos señalados, inhabilitando a su vez dicho botón.
 
 - Al registrarse correctamente, se disparará un modal, dando la bienvenida al usuario, pero al no tener una pagina de inicio, no habrá una redirección. El usuario se guardará en el sessionStorage del navegador como un objeto con las propiedades extraidas del formulario.
 
