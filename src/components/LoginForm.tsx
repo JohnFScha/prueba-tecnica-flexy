@@ -63,7 +63,7 @@ export default function LoginForm() {
         </div>
         {errors?.password ? <p className='text-center p-1 text-red-400'>{errors.password?.message as string}</p> : null}
       </label>
-      <input type="submit" className={isValid ?'bg-primary text-white border-2 p-3 rounded-lg font-bold cursor-pointer' : 'bg-neutral-400 text-white border-2 p-3 rounded-lg font-bold'} disabled={!isValid} />
+      <button type="submit" className={isValid ?'bg-primary text-white border-2 p-3 rounded-lg font-bold cursor-pointer' : 'bg-neutral-400 text-white border-2 p-3 rounded-lg font-bold'} disabled={!isValid}>IniciÁ Sesión</button>
     </form>
   )
 }
