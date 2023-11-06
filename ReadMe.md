@@ -39,7 +39,7 @@ Desarrollar un front de acuerdo al maquetado pasado por [Figma](https://www.figm
 
 ## [Boilerplate del proyecto](#boilerplate-del-proyecto)
 
-El proyecto fue creado con el comando `pnpm create vite-app@latest` usando el manejador de versiones [pnpm](https://pnpm.io/es/), usando la plantilla inicial [react-ts w/swc](https://stackblitz.com/edit/vitejs-vite-erq3ox?file=index.html&terminal=dev).
+El proyecto fue creado con el comando `pnpm create vite-app@latest` usando el manejador de versiones [pnpm](https://pnpm.io/es/), con la plantilla inicial [react-ts w/swc](https://stackblitz.com/edit/vitejs-vite-erq3ox?file=index.html&terminal=dev).
 
 Para correr el proyecto en el localhost:5173, primero es necesario instalar las dependencias con `pnpm install` y luego correrlo con el comando `pnpm dev`.
 
